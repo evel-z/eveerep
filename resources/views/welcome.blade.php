@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew & Cozy - Coffee Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Happy Birthday!</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #FAF6F0; /* Light cream background */
-            --text-dark: #3E3128; /* Dark brown text */
-            --accent-color: #92836E; /* Muted brown/olive for buttons */
-            --line-color: #D5CDC4; /* Color for dividers */
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Lato', sans-serif;
+            --bg-color: #3b2c24;
+            --bg-lighter: #4a382f;
+            --text-creamy: #fdf3e7;
+            --text-accent: #d2a98e;
+            --card-bg: #523f35;
+            --font-bubbly: 'Lilita One', cursive;
+            --font-sans: 'Montserrat', sans-serif;
         }
 
         * {
@@ -24,439 +29,395 @@
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-dark);
-            font-family: var(--font-body);
-            line-height: 1.6;
+            color: var(--text-creamy);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            position: relative;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
+        /* Background Floating Objects */
+        .bg-object {
+            position: fixed;
+            z-index: 0;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float-around 20s infinite ease-in-out;
+        }
+        .star { font-size: 3rem; color: #f6d365; }
+        .circle { width: 50px; height: 50px; border-radius: 50%; background: var(--text-accent); }
+        .triangle { width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 50px solid #ff7096; }
+
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -50px) rotate(120deg); }
+            66% { transform: translate(-20px, 40px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
         }
 
-        /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background-color: var(--bg-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: #FFF;
-            padding: 0.7rem 1.5rem;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #7A6C58;
-        }
-
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 60vh;
-            min-height: 400px;
-            margin: 0 5% 4rem 5%;
-            background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding-top: 5rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding-left: 5%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Slight dark overlay for readability */
-        }
-
-        .hero-content {
-            position: relative;
+            width: 100%;
+            min-height: 100vh;
             z-index: 2;
-            color: #FFF;
-            max-width: 400px;
         }
 
-        .hero h1 {
-            font-family: var(--font-heading);
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        .year-tag {
+            position: absolute;
+            top: 2rem;
+            right: 15%;
+            font-family: var(--font-bubbly);
+            font-size: 3rem;
+            color: var(--text-accent);
+            transform: rotate(15deg);
         }
 
-        /* Section Dividers */
-        .divider {
+        .title-wrapper {
+            position: relative;
             display: flex;
             align-items: center;
-            text-align: center;
-            margin: 4rem 5% 3rem 5%;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid var(--line-color);
-        }
-
-        .divider span {
-            padding: 0 1.5rem;
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        /* Zigzag Content (About Us / Menu) */
-        .zigzag-row {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            margin: 0 5% 4rem 5%;
-        }
-
-        .zigzag-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .zigzag-img {
-            flex: 1;
-        }
-
-        .zigzag-img img {
+            justify-content: center;
             width: 100%;
             height: 300px;
-            object-fit: cover;
-            display: block;
         }
 
-        .zigzag-text {
-            flex: 1;
-        }
-
-        .zigzag-text h3 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .zigzag-text p {
-            font-size: 0.95rem;
-            color: #554A42;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Store Locations */
-        .locations-container {
-            display: flex;
-            gap: 2rem;
-            margin: 0 5% 4rem 5%;
-            background: #F1EBE3;
-            padding: 2rem;
-        }
-
-        .location-img {
-            flex: 1;
-        }
-
-        .location-img img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .location-map {
-            flex: 1;
-            background: #E8E1D7;
+        .big-text {
+            font-family: var(--font-bubbly);
+            font-size: clamp(5rem, 10vw, 12rem);
+            color: var(--text-creamy);
             display: flex;
             align-items: center;
+            letter-spacing: 5px;
+            text-shadow: 0px 10px 0px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+
+        .big-text span {
+            display: inline-block;
+            transition: transform 0.3s;
+            animation: bounce-text 3s infinite alternate;
+        }
+
+        @keyframes bounce-text {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        .big-text span:nth-child(even) { animation-delay: 0.5s; }
+        .big-text span:nth-child(odd) { animation-delay: 0s; }
+
+        .t-small { font-size: 0.6em; transform: translateY(-20px) !important; animation: none !important; }
+        .f-small { font-size: 0.7em; transform: translateY(20px) !important; animation: none !important; }
+
+        .character-img {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: auto;
+            z-index: 5;
+            filter: drop-shadow(0px 20px 15px rgba(0,0,0,0.3));
+            animation: gentle-float 4s infinite ease-in-out;
+        }
+
+        @keyframes gentle-float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .content-section {
+            display: flex;
             justify-content: center;
-            position: relative;
-        }
-        
-        .location-map img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            opacity: 0.8;
-        }
-
-        /* Footer / Reviews / Contact */
-        .footer-section {
-            display: flex;
-            gap: 4rem;
-            margin: 0 5% 4rem 5%;
-            padding-top: 1rem;
-        }
-
-        .footer-left {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 6rem auto 2rem auto;
+            padding: 0 2rem;
         }
 
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--line-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .id-card-wrapper { position: relative; width: 250px; }
+        .id-clip {
+            width: 60px; height: 80px; border: 8px solid #ddd;
+            border-radius: 30px; position: absolute; top: -40px;
+            left: 50%; transform: translateX(-50%); z-index: 0;
+        }
+        .id-card {
+            background: var(--text-creamy); padding: 1rem; border-radius: 15px;
+            position: relative; z-index: 2; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .id-card:hover { transform: rotate(-5deg) scale(1.05); }
+        .id-card img { width: 100%; border-radius: 10px; background-color: #e5d5c5; }
+        .brand-name {
+            font-weight: 800; color: var(--text-accent); letter-spacing: 2px;
+            margin-bottom: 2rem; font-size: 1.2rem; text-align: center;
         }
 
-        .contact-info h4 {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+        .text-content { max-width: 500px; }
+        .text-content h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .text-content h2 span { color: var(--text-accent); }
+        .text-content p { font-size: 1rem; line-height: 1.8; font-weight: 600; color: #d1b8a5; }
+
+        /* Scroll indicator */
+        .scroll-down {
+            margin-top: 5rem;
+            font-size: 2rem;
+            color: var(--text-accent);
+            animation: bounce 2s infinite;
         }
 
-        .contact-info p {
-            font-size: 0.85rem;
-            color: #666;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
         }
 
-        .footer-right {
-            flex: 1;
-            background: transparent;
+        /* --- Scroll Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .footer-right h3 {
-            font-family: var(--font-heading);
+        /* --- Wishes Section --- */
+        .wishes-section {
+            padding: 8rem 2rem;
+            background-color: var(--bg-lighter);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-bubbly);
+            font-size: 4rem;
+            color: var(--text-creamy);
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .wish-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border-top: 5px solid var(--text-accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        
+        .wish-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .wish-card h3 {
+            color: var(--text-accent);
             font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
             margin-bottom: 1rem;
-            border: 1px solid var(--line-color);
-            background: transparent;
-            font-family: var(--font-body);
-            color: var(--text-dark);
         }
         
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
+        .wish-card p {
+            line-height: 1.7;
+            color: #d1b8a5;
         }
 
-        .contact-form textarea {
-            height: 100px;
-            resize: none;
+        /* --- Memories Section (Polaroids) --- */
+        .memories-section {
+            padding: 8rem 2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-form .btn {
+        .polaroid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 1rem 1rem 3rem 1rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        
+        .polaroid:nth-child(1) { transform: rotate(-5deg); }
+        .polaroid:nth-child(2) { transform: rotate(8deg); margin-top: 4rem;}
+        .polaroid:nth-child(3) { transform: rotate(-3deg); }
+        
+        .polaroid:hover {
+            transform: scale(1.1) rotate(0deg);
+            z-index: 10;
+        }
+
+        .polaroid img {
             width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-        }
-        
-        /* Mobile Hamburger */
-        .hamburger {
-            display: none;
-            cursor: pointer;
+            height: 200px;
+            object-fit: cover;
+            background: #eee;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .zigzag-row, .zigzag-row.reverse, .locations-container, .footer-section {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .hero {
-                margin: 0 0 3rem 0;
-                height: 50vh;
-                justify-content: center;
-                text-align: center;
-                padding: 0 5%;
-            }
-            .hero h1 { font-size: 2.8rem; }
-            .nav-links {
-                display: none;
-            }
-            .hamburger {
-                display: block;
-            }
-            .footer-left {
-                grid-template-columns: 1fr;
-            }
+        .polaroid p {
+            color: #333;
+            text-align: center;
+            font-family: 'Lilita One', cursive;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--bg-lighter);
+            font-family: var(--font-bubbly);
+            font-size: 2rem;
+            color: var(--text-accent);
+        }
+
+        @media (max-width: 768px) {
+            .content-section { flex-direction: column; align-items: center; text-align: center; margin-top: 6rem;}
+            .character-img { width: 200px; bottom: -80px; }
+            .big-text { font-size: 3.5rem; }
+            .t-small, .f-small { transform: translateY(0) !important; font-size: 1em; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Brew & Cozy</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#menu">Coffee Menu</a>
-            <a href="#locations">Store Locations</a>
-            <a href="#reviews">Customer Reviews</a>
-        </div>
-        <button class="btn hidden-mobile" style="margin-left: 2rem;">Contact Us</button>
+    <!-- Floating Background Objects -->
+    <div class="bg-object star" style="top: 10%; left: 5%;">⭐</div>
+    <div class="bg-object star" style="top: 30%; right: 10%; animation-delay: -5s;">✨</div>
+    <div class="bg-object circle" style="top: 60%; left: 15%; animation-delay: -2s;"></div>
+    <div class="bg-object triangle" style="top: 80%; right: 20%; animation-delay: -7s;"></div>
+    <div class="bg-object star" style="top: 120%; left: 40%; animation-delay: -3s;">🎉</div>
+    <div class="bg-object circle" style="top: 160%; right: 10%; background: #ff477e;"></div>
+
+    <section class="hero">
+        <div class="year-tag">'25</div>
         
-        <div class="hamburger">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+        <div class="title-wrapper fade-in">
+            <div class="big-text">
+                <span>H</span><span>A</span><span>P</span>
+                <span class="t-small">P</span><span class="f-small">Y</span>
+                <span style="width: 150px;" class="spacer"></span>
+                <span>B</span><span>D</span><span>A</span><span>Y</span>
+            </div>
+            
+            <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Bella&backgroundColor=transparent" alt="Birthday Person" class="character-img">
         </div>
-    </nav>
 
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <h1>Warm Brews,<br>Cozy Spaces</h1>
-            <a href="#locations" class="btn">Book a Table</a>
-        </div>
-    </header>
-
-    <!-- About Us Section -->
-    <div class="divider" id="about"><span>About Us</span></div>
-    
-    <section class="zigzag-row">
-        <div class="zigzag-img">
-            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80" alt="Coffee Brewing">
-        </div>
-        <div class="zigzag-text">
-            <h3>Coffee Menu</h3>
-            <p>Experience the rich, bold flavors of our freshly roasted coffee beans. We source only the finest arabica beans from sustainable farms around the world to ensure every cup delivers an unforgettable taste.</p>
-            <p>Our skilled baristas craft each beverage with precision and care, whether you prefer a classic espresso or a creamy latte.</p>
-        </div>
-    </section>
-
-    <!-- Coffee Menu Section -->
-    <section class="zigzag-row reverse" id="menu">
-        <div class="zigzag-img">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Coffee Cup">
-        </div>
-        <div class="zigzag-text">
-            <h3>Coffee Menu</h3>
-            <p>Indulge in our selection of artisanal pastries and savory bites, perfectly paired with your favorite coffee. From flaky croissants to decadent chocolate cakes, there's something to satisfy every craving.</p>
-            <p>Join us in our welcoming space, designed to be your home away from home. Sit back, relax, and savor the moment.</p>
-        </div>
-    </section>
-
-    <!-- Store Locations Section -->
-    <div class="divider" id="locations"><span>Store Locations</span></div>
-    
-    <section class="locations-container">
-        <div class="location-img">
-            <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=800&q=80" alt="Store Interior">
-        </div>
-        <div class="location-map">
-            <!-- Placeholder for map -->
-            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map Location" style="filter: grayscale(80%) sepia(30%);">
-        </div>
-    </section>
-
-    <!-- Customer Reviews / Footer Contact -->
-    <div class="divider" id="reviews"><span>Customer Reviews</span></div>
-    
-    <section class="footer-section">
-        <div class="footer-left">
+        <section class="content-section fade-in">
             <div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-info">
-                        <h4>Contact Us</h4>
-                        <p>123 Coffee Street, Brew City</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-info">
-                        <h4>Phone</h4>
-                        <p>+1 234 567 890</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-info">
-                        <h4>Email</h4>
-                        <p>hello@brewcozy.com</p>
+                <div class="brand-name">YOUR NAME</div>
+                <div class="id-card-wrapper">
+                    <div class="id-clip"></div>
+                    <div class="id-card">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=e5d5c5" alt="Profile">
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="contact-item">
-                    <div class="contact-icon">⭐</div>
-                    <div class="contact-info">
-                        <h4>Customer Reviews</h4>
-                        <p>"Best coffee in town!" - Sarah M.</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📸</div>
-                    <div class="contact-info">
-                        <h4>Follow Us</h4>
-                        <p>@brewcozy</p>
-                    </div>
-                </div>
+
+            <div class="text-content">
+                <h2>HI, I'M <span>BIRTHDAY STAR</span></h2>
+                <p>Today is a very special day dedicated to celebrating you! Wishing you a fantastic year ahead filled with clean code, modern aesthetics, and seamless user experiences in real life.</p>
+                <p style="margin-top: 1rem;">May every project you launch and every dream you chase this year bring you endless joy and success.</p>
             </div>
-        </div>
-        
-        <div class="footer-right">
-            <h3>Contact Us</h3>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Contact Us</button>
-            </form>
+        </section>
+
+        <div class="scroll-down">👇</div>
+    </section>
+
+    <!-- WISHES SECTION -->
+    <section class="wishes-section">
+        <h2 class="section-title fade-in">Best Wishes For You! 🎁</h2>
+        <div class="wishes-grid">
+            <div class="wish-card fade-in">
+                <h3>Keep Shining ✨</h3>
+                <p>Semoga di umur yang baru ini kamu selalu diberikan kebahagiaan, kesehatan, dan terus menjadi pribadi yang bersinar di manapun kamu berada!</p>
+            </div>
+            <div class="wish-card fade-in" style="transition-delay: 0.2s;">
+                <h3>Achieve Your Goals 🚀</h3>
+                <p>Semua mimpimu dan target coding-mu semoga bisa tercapai tahun ini. Jangan pernah menyerah dan terus belajar hal-hal baru!</p>
+            </div>
+            <div class="wish-card fade-in" style="transition-delay: 0.4s;">
+                <h3>Stay Awesome 😎</h3>
+                <p>Terima kasih sudah menjadi teman yang luar biasa. Stay cool, stay healthy, and let's make more awesome projects together!</p>
+            </div>
         </div>
     </section>
 
+    <!-- MEMORIES / GALLERY SECTION -->
+    <section class="memories-section">
+        <h2 class="section-title fade-in">Beautiful Memories 📸</h2>
+        <div class="polaroid-container">
+            <!-- Polaroid 1 -->
+            <div class="polaroid fade-in">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=400&q=80" alt="Memory 1">
+                <p>Good Times!</p>
+            </div>
+            <!-- Polaroid 2 -->
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=400&q=80" alt="Memory 2">
+                <p>Crazy Days 🤪</p>
+            </div>
+            <!-- Polaroid 3 -->
+            <div class="polaroid fade-in" style="transition-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1533174000220-9fa816c9fe39?auto=format&fit=crop&w=400&q=80" alt="Memory 3">
+                <p>Best Squad ✌️</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="fade-in">
+            Made with ❤️ for your special day! 🎂
+        </div>
+    </footer>
+
+    <!-- Script for Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: Stop observing once visible if you want it to animate only once
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
