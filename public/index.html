@@ -310,9 +310,11 @@
 
         @media (max-width: 768px) {
             .hero { min-height: auto; padding-bottom: 5rem; }
-            .content-section { flex-direction: column; align-items: center; text-align: center; margin-top: 6rem;}
-            .character-img { width: 200px; bottom: -80px; }
-            .big-text { font-size: 3.5rem; }
+            .title-wrapper { height: auto; padding: 2rem 0; }
+            .content-section { flex-direction: column; align-items: center; text-align: center; margin-top: 8rem;}
+            .character-img { width: 180px; bottom: -90px; }
+            .big-text { font-size: 4rem; flex-direction: column; gap: 1rem; }
+            .spacer { display: none !important; }
             .t-small, .f-small { transform: translateY(0) !important; font-size: 1em; }
             .wishes-section { padding: 4rem 1.5rem; }
             .memories-section { padding: 4rem 1.5rem; }
@@ -338,10 +340,14 @@
         
         <div class="title-wrapper fade-in">
             <div class="big-text">
-                <span>H</span><span>A</span><span>P</span>
-                <span class="t-small">P</span><span class="f-small">Y</span>
+                <div style="display: flex; justify-content: center;">
+                    <span>H</span><span>A</span><span>P</span>
+                    <span class="t-small">P</span><span class="f-small">Y</span>
+                </div>
                 <span style="width: 150px;" class="spacer"></span>
-                <span>B</span><span>D</span><span>A</span><span>Y</span>
+                <div style="display: flex; justify-content: center;">
+                    <span>B</span><span>D</span><span>A</span><span>Y</span>
+                </div>
             </div>
             <!-- Karakter Perempuan -->
             <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Lily&backgroundColor=transparent" alt="Birthday Person" class="character-img">
