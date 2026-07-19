@@ -262,9 +262,10 @@
             transition: transform 0.3s;
         }
         
-        .polaroid:nth-child(1) { transform: rotate(-5deg); }
-        .polaroid:nth-child(2) { transform: rotate(8deg); margin-top: 4rem;}
-        .polaroid:nth-child(3) { transform: rotate(-3deg); }
+        .polaroid:nth-child(even) { transform: rotate(5deg); margin-top: 2rem; }
+        .polaroid:nth-child(odd) { transform: rotate(-4deg); margin-top: 0; }
+        .polaroid:nth-child(3n) { transform: rotate(2deg); margin-top: 4rem; }
+        .polaroid:nth-child(4n) { transform: rotate(-6deg); margin-top: 1rem; }
         
         .polaroid:hover {
             transform: scale(1.1) rotate(0deg);
@@ -372,21 +373,21 @@
     <section class="memories-section">
         <h2 class="section-title fade-in">Beautiful Memories 📸</h2>
         <div class="polaroid-container">
-            <!-- Polaroid 1 -->
-            <div class="polaroid fade-in">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=400&q=80" alt="Memory 1">
-                <p>Good Times!</p>
-            </div>
-            <!-- Polaroid 2 -->
-            <div class="polaroid fade-in" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=400&q=80" alt="Memory 2">
-                <p>Crazy Days 🤪</p>
-            </div>
-            <!-- Polaroid 3 -->
-            <div class="polaroid fade-in" style="transition-delay: 0.4s;">
-                <img src="https://images.unsplash.com/photo-1533174000220-9fa816c9fe39?auto=format&fit=crop&w=400&q=80" alt="Memory 3">
-                <p>Best Squad ✌️</p>
-            </div>
+            <div class="polaroid fade-in"><img src="/Jamalone.jpg" alt="Memory 1"><p>Memory 1</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamaltwo.jpeg" alt="Memory 2"><p>Memory 2</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamalthree.jpeg" alt="Memory 3"><p>Memory 3</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal4.jpeg" alt="Memory 4"><p>Memory 4</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal5.jpeg" alt="Memory 5"><p>Memory 5</p></div>
+            <div class="polaroid fade-in"><img src="/jamal6.jpeg" alt="Memory 6"><p>Memory 6</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal7.jpeg" alt="Memory 7"><p>Memory 7</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal8.jpeg" alt="Memory 8"><p>Memory 8</p></div>
+            <div class="polaroid fade-in"><img src="/jamal9.jpeg" alt="Memory 9"><p>Memory 9</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal10.jpeg" alt="Memory 10"><p>Memory 10</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal11.jpeg" alt="Memory 11"><p>Memory 11</p></div>
+            <div class="polaroid fade-in"><img src="/jamal12.jpeg" alt="Memory 12"><p>Memory 12</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal13.jpeg" alt="Memory 13"><p>Memory 13</p></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal14.jpeg" alt="Memory 14"><p>Memory 14</p></div>
+            <div class="polaroid fade-in"><img src="/jamal15.jpeg" alt="Memory 15"><p>Memory 15</p></div>
         </div>
     </section>
 
