@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500;600;700;800&display=swap"
         rel="stylesheet">
+    
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
         :root {
@@ -746,6 +749,14 @@
             lopp yuuu bebb</h2>
     </section>
 
+    <!-- Tiup Lilin Section -->
+    <section class="candle-section fade-in" style="text-align: center; padding: 4rem 2rem; background-color: var(--bg-lighter); margin: 2rem 1rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+        <h2 style="font-family: var(--font-bubbly); font-size: 2.5rem; color: var(--text-accent); margin-bottom: 1rem;">Make A Wish! 🌠</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-creamy);">Tutup mata, ucapkan harapanmu, lalu tekan kue di bawah untuk meniup lilinnya!</p>
+        <div id="cake-btn" style="font-size: 6rem; cursor: pointer; display: inline-block; transition: transform 0.2s; user-select: none;">🎂</div>
+        <p id="cake-msg" style="margin-top: 1rem; font-weight: bold; font-size: 1.5rem; color: #ff7096; opacity: 0; transition: opacity 0.5s;">Yeayy! Doamu sudah terbang ke langit! 🎉</p>
+    </section>
+
     <footer>
         <div class="fade-in">
             Made with by RVStore for your special day! 🎂
@@ -782,12 +793,40 @@
                     if (!this.classList.contains('revealed')) {
                         this.classList.add('revealed');
                         revealedCount++;
-
-                        if (revealedCount === totalPolaroids) {
-                            successMsg.style.opacity = '1';
-                        }
                     }
                 });
+            });
+
+            // Tiup Lilin Logic
+            const cakeBtn = document.getElementById('cake-btn');
+            const cakeMsg = document.getElementById('cake-msg');
+            let isBlown = false;
+            
+            cakeBtn.addEventListener('click', () => {
+                if(!isBlown) {
+                    isBlown = true;
+                    cakeBtn.innerText = '🍰'; // Change to sliced cake
+                    cakeBtn.style.transform = 'scale(1.2)';
+                    cakeMsg.style.opacity = '1';
+                    
+                    // Confetti explosion!
+                    var duration = 3 * 1000;
+                    var animationEnd = Date.now() + duration;
+                    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+                    
+                    var interval = setInterval(function() {
+                        var timeLeft = animationEnd - Date.now();
+                        
+                        if (timeLeft <= 0) {
+                            return clearInterval(interval);
+                        }
+                        
+                        var particleCount = 50 * (timeLeft / duration);
+                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random(), y: Math.random() - 0.2 } }));
+                    }, 250);
+                    
+                    setTimeout(() => cakeBtn.style.transform = 'scale(1)', 200);
+                }
             });
         });
     </script>
