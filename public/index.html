@@ -286,6 +286,17 @@
             margin-top: 1rem;
             font-size: 1.2rem;
         }
+        
+        .polaroid .desc {
+            display: block;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
 
         /* --- Footer --- */
         footer {
@@ -298,10 +309,17 @@
         }
 
         @media (max-width: 768px) {
+            .hero { min-height: auto; padding-bottom: 5rem; }
             .content-section { flex-direction: column; align-items: center; text-align: center; margin-top: 6rem;}
             .character-img { width: 200px; bottom: -80px; }
             .big-text { font-size: 3.5rem; }
             .t-small, .f-small { transform: translateY(0) !important; font-size: 1em; }
+            .wishes-section { padding: 4rem 1.5rem; }
+            .memories-section { padding: 4rem 1.5rem; }
+            .polaroid-container { gap: 2rem; }
+            .polaroid { width: 100%; max-width: 320px; margin: 0 auto !important; }
+            .polaroid:nth-child(n) { transform: rotate(0deg) !important; margin-top: 0 !important; }
+            .polaroid:hover { transform: scale(1.02) rotate(0deg) !important; }
         }
     </style>
 </head>
@@ -373,21 +391,21 @@
     <section class="memories-section">
         <h2 class="section-title fade-in">Beautiful Memories 📸</h2>
         <div class="polaroid-container">
-            <div class="polaroid fade-in"><img src="/Jamalone.jpg" alt="Memory 1"><p>Memory 1</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamaltwo.jpeg" alt="Memory 2"><p>Memory 2</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamalthree.jpeg" alt="Memory 3"><p>Memory 3</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal4.jpeg" alt="Memory 4"><p>Memory 4</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal5.jpeg" alt="Memory 5"><p>Memory 5</p></div>
-            <div class="polaroid fade-in"><img src="/jamal6.jpeg" alt="Memory 6"><p>Memory 6</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal7.jpeg" alt="Memory 7"><p>Memory 7</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal8.jpeg" alt="Memory 8"><p>Memory 8</p></div>
-            <div class="polaroid fade-in"><img src="/jamal9.jpeg" alt="Memory 9"><p>Memory 9</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal10.jpeg" alt="Memory 10"><p>Memory 10</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal11.jpeg" alt="Memory 11"><p>Memory 11</p></div>
-            <div class="polaroid fade-in"><img src="/jamal12.jpeg" alt="Memory 12"><p>Memory 12</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal13.jpeg" alt="Memory 13"><p>Memory 13</p></div>
-            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal14.jpeg" alt="Memory 14"><p>Memory 14</p></div>
-            <div class="polaroid fade-in"><img src="/jamal15.jpeg" alt="Memory 15"><p>Memory 15</p></div>
+            <div class="polaroid fade-in"><img src="/Jamalone.jpg" alt="Memory 1"><p>Jamal 1</p><span class="desc">A beautiful start to our journey.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamaltwo.jpeg" alt="Memory 2"><p>Jamal 2</p><span class="desc">Always smiling together!</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamalthree.jpeg" alt="Memory 3"><p>Jamal 3</p><span class="desc">Crazy moments we won't forget.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal4.jpeg" alt="Memory 4"><p>Jamal 4</p><span class="desc">Living the best life.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal5.jpeg" alt="Memory 5"><p>Jamal 5</p><span class="desc">Looking cool as always.</span></div>
+            <div class="polaroid fade-in"><img src="/jamal6.jpeg" alt="Memory 6"><p>Jamal 6</p><span class="desc">Unforgettable adventures.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal7.jpeg" alt="Memory 7"><p>Jamal 7</p><span class="desc">Just chilling around.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal8.jpeg" alt="Memory 8"><p>Jamal 8</p><span class="desc">Such a classic photo.</span></div>
+            <div class="polaroid fade-in"><img src="/jamal9.jpeg" alt="Memory 9"><p>Jamal 9</p><span class="desc">The aesthetic vibes.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal10.jpeg" alt="Memory 10"><p>Jamal 10</p><span class="desc">Pure happiness!</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal11.jpeg" alt="Memory 11"><p>Jamal 11</p><span class="desc">Memories for a lifetime.</span></div>
+            <div class="polaroid fade-in"><img src="/jamal12.jpeg" alt="Memory 12"><p>Jamal 12</p><span class="desc">Good times, good friends.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.1s;"><img src="/jamal13.jpeg" alt="Memory 13"><p>Jamal 13</p><span class="desc">Staying awesome.</span></div>
+            <div class="polaroid fade-in" style="transition-delay: 0.2s;"><img src="/jamal14.jpeg" alt="Memory 14"><p>Jamal 14</p><span class="desc">Ready for the next chapter.</span></div>
+            <div class="polaroid fade-in"><img src="/jamal15.jpeg" alt="Memory 15"><p>Jamal 15</p><span class="desc">Happy Birthday once again!</span></div>
         </div>
     </section>
 
