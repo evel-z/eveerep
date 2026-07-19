@@ -649,8 +649,49 @@
                     day bring you nothing but joy and success.</p>
             </div>
         </section>
-
         <div class="scroll-down">👇</div>
+    </section>
+
+    <!-- FUN MINI GAMES SECTION -->
+    <section class="fun-section fade-in" style="padding: 4rem 2rem; text-align: center; background-color: var(--bg-color);">
+        <h2 style="font-family: var(--font-bubbly); font-size: 2.5rem; color: var(--text-accent); margin-bottom: 2rem;">Little Surprises! 🎁</h2>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1000px; margin: 0 auto;">
+            
+            <!-- Magic Envelope -->
+            <div class="interactive-card" id="envelope-card" style="background: var(--card-bg); padding: 2rem; border-radius: 20px; width: 100%; max-width: 300px; cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;" id="env-icon">💌</div>
+                <h3 style="font-family: var(--font-bubbly); margin-bottom: 0.5rem;">Secret Letter</h3>
+                <p style="font-size: 0.9rem; color: var(--text-creamy);">Tap to open a secret message!</p>
+                <div id="env-message" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ff7096; display: flex; align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: 0.5s; pointer-events: none; padding: 1rem;">
+                    <span style="font-size: 3rem;">💖</span>
+                    <span style="font-weight: bold; margin-top: 1rem; color: white;">You're the best!</span>
+                </div>
+            </div>
+
+            <!-- Love Meter -->
+            <div class="interactive-card" id="love-meter-card" style="background: var(--card-bg); padding: 2rem; border-radius: 20px; width: 100%; max-width: 300px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🌡️</div>
+                <h3 style="font-family: var(--font-bubbly); margin-bottom: 0.5rem;">Love Meter</h3>
+                <p style="font-size: 0.9rem; color: var(--text-creamy);">Click to measure our love for you!</p>
+                <div style="width: 100%; height: 20px; background: #333; border-radius: 10px; margin-top: 1rem; overflow: hidden; position: relative;">
+                    <div id="meter-fill" style="width: 0%; height: 100%; background: #ff7096; transition: width 2s cubic-bezier(0.1, 0.7, 0.1, 1);"></div>
+                </div>
+                <p id="meter-text" style="margin-top: 1rem; font-weight: bold; opacity: 0; transition: 0.5s; color: #ff7096;">ERROR: Love Overflow 999%!</p>
+            </div>
+
+            <!-- Catch the Heart -->
+            <div class="interactive-card" style="background: var(--card-bg); padding: 2rem; border-radius: 20px; width: 100%; max-width: 300px; position: relative; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;">
+                <h3 style="font-family: var(--font-bubbly); margin-bottom: 0.5rem;">Catch Me!</h3>
+                <p style="font-size: 0.9rem; color: var(--text-creamy);">Try to tap the running heart!</p>
+                <div id="running-heart" style="font-size: 3rem; position: absolute; bottom: 20px; left: 40%; cursor: pointer; transition: top 0.2s, left 0.2s; user-select: none; z-index: 5;">💝</div>
+                <div id="catch-msg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ff7096; display: flex; align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: 0.5s; pointer-events: none; z-index: 10;">
+                    <span style="font-size: 3rem;">🥰</span>
+                    <span style="font-weight: bold; color: white; margin-top: 1rem;">Gotcha!</span>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- WISHES SECTION -->
@@ -828,6 +869,42 @@
                     setTimeout(() => cakeBtn.style.transform = 'scale(1)', 200);
                 }
             });
+
+            // Mini Games Logic
+            // 1. Envelope
+            document.getElementById('envelope-card').addEventListener('click', function() {
+                document.getElementById('env-message').style.opacity = '1';
+            });
+            
+            // 2. Love Meter
+            document.getElementById('love-meter-card').addEventListener('click', function() {
+                document.getElementById('meter-fill').style.width = '100%';
+                setTimeout(() => {
+                    document.getElementById('meter-text').style.opacity = '1';
+                }, 1500);
+            });
+            
+            // 3. Catch the Heart
+            const rHeart = document.getElementById('running-heart');
+            const catchMsg = document.getElementById('catch-msg');
+            
+            function moveHeart() {
+                const newLeft = Math.floor(Math.random() * 60) + 10;
+                const newTop = Math.floor(Math.random() * 60) + 20;
+                rHeart.style.left = newLeft + '%';
+                rHeart.style.top = newTop + '%';
+            }
+            
+            rHeart.addEventListener('mouseover', moveHeart);
+            rHeart.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                moveHeart();
+            }, {passive: false});
+            
+            rHeart.addEventListener('click', function() {
+                catchMsg.style.opacity = '1';
+            });
+            
         });
     </script>
 </body>
