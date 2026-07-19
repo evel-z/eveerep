@@ -628,18 +628,34 @@
             }
 
             .polaroid-container {
-                gap: 2rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
 
             .polaroid {
                 width: 100%;
-                max-width: 320px;
-                margin: 0 auto !important;
+                max-width: none;
+                margin: 0 !important;
+                padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+                transform: rotate(0deg) !important;
             }
 
-            .polaroid:nth-child(n) {
-                transform: rotate(0deg) !important;
-                margin-top: 0 !important;
+            .polaroid img {
+                height: 120px;
+            }
+
+            .polaroid p {
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
+            }
+
+            .polaroid .desc {
+                display: none;
+            }
+
+            .mystery-cover {
+                font-size: 2rem;
             }
 
             .polaroid:hover {
