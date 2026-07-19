@@ -472,102 +472,69 @@
             line-height: 1.4;
         }
 
-        /* Heart Grid for Desktop */
+        /* Heart Grid for All Screens */
+        .polaroid-container {
+            display: grid !important;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0.5rem;
+        }
+
+        .polaroid {
+            width: 100%;
+            margin: 0 !important;
+            padding: 2px 2px 5px 2px;
+            transform: rotate(0) !important;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.1) rotate(0) !important;
+            z-index: 20;
+        }
+
+        .polaroid img {
+            height: auto;
+            aspect-ratio: 1/1;
+        }
+
+        .polaroid p {
+            font-size: 0.4rem;
+            margin-top: 2px;
+        }
+
+        .polaroid .desc {
+            display: none;
+        }
+
+        .mystery-cover {
+            font-size: 1rem;
+        }
+
+        /* 15 items Heart Shape */
+        .p-1 { grid-area: 1 / 2; }
+        .p-2 { grid-area: 1 / 3; }
+        .p-3 { grid-area: 1 / 5; }
+        .p-4 { grid-area: 1 / 6; }
+        .p-5 { grid-area: 2 / 1; }
+        .p-6 { grid-area: 2 / 2; }
+        .p-7 { grid-area: 2 / 3; }
+        .p-8 { grid-area: 2 / 4; }
+        .p-9 { grid-area: 2 / 5; }
+        .p-10 { grid-area: 2 / 6; }
+        .p-11 { grid-area: 2 / 7; }
+        .p-12 { grid-area: 3 / 3; }
+        .p-13 { grid-area: 3 / 4; }
+        .p-14 { grid-area: 3 / 5; }
+        .p-15 { grid-area: 4 / 4; }
+
         @media (min-width: 769px) {
-            .polaroid-container {
-                display: grid !important;
-                grid-template-columns: repeat(7, 1fr);
-                gap: 0.5rem;
-                max-width: 1000px;
-                margin: 0 auto;
-                padding: 2rem;
-            }
-
-            .polaroid {
-                width: 100%;
-                margin: 0 !important;
-                padding: 0.5rem 0.5rem 2rem 0.5rem;
-                transform: rotate(0) !important;
-            }
-
-            .polaroid:hover {
-                transform: scale(1.2) rotate(0) !important;
-            }
-
-            .polaroid img {
-                height: 120px;
-            }
-
-            .polaroid p {
-                font-size: 0.8rem;
-                margin-top: 0.5rem;
-            }
-
-            .polaroid .desc {
-                font-size: 0.6rem;
-                display: none;
-            }
-
-            /* 15 items Heart Shape */
-            .p-1 {
-                grid-area: 1 / 2;
-            }
-
-            .p-2 {
-                grid-area: 1 / 3;
-            }
-
-            .p-3 {
-                grid-area: 1 / 5;
-            }
-
-            .p-4 {
-                grid-area: 1 / 6;
-            }
-
-            .p-5 {
-                grid-area: 2 / 1;
-            }
-
-            .p-6 {
-                grid-area: 2 / 2;
-            }
-
-            .p-7 {
-                grid-area: 2 / 3;
-            }
-
-            .p-8 {
-                grid-area: 2 / 4;
-            }
-
-            .p-9 {
-                grid-area: 2 / 5;
-            }
-
-            .p-10 {
-                grid-area: 2 / 6;
-            }
-
-            .p-11 {
-                grid-area: 2 / 7;
-            }
-
-            .p-12 {
-                grid-area: 3 / 3;
-            }
-
-            .p-13 {
-                grid-area: 3 / 4;
-            }
-
-            .p-14 {
-                grid-area: 3 / 5;
-            }
-
-            .p-15 {
-                grid-area: 4 / 4;
-            }
+            .polaroid-container { gap: 0.5rem; padding: 2rem; }
+            .polaroid { padding: 0.5rem 0.5rem 2rem 0.5rem; }
+            .polaroid p { font-size: 0.8rem; margin-top: 0.5rem; }
+            .mystery-cover { font-size: 3rem; }
+            .polaroid:hover { transform: scale(1.2) rotate(0) !important; }
         }
 
         /* --- Footer --- */
@@ -627,40 +594,6 @@
                 padding: 4rem 1.5rem;
             }
 
-            .polaroid-container {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .polaroid {
-                width: 100%;
-                max-width: none;
-                margin: 0 !important;
-                padding: 0.5rem 0.5rem 1.5rem 0.5rem;
-                transform: rotate(0deg) !important;
-            }
-
-            .polaroid img {
-                height: 120px;
-            }
-
-            .polaroid p {
-                font-size: 0.9rem;
-                margin-top: 0.5rem;
-            }
-
-            .polaroid .desc {
-                display: none;
-            }
-
-            .mystery-cover {
-                font-size: 2rem;
-            }
-
-            .polaroid:hover {
-                transform: scale(1.02) rotate(0deg) !important;
-            }
         }
     </style>
 </head>
